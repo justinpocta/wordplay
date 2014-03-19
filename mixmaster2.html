@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=2.3, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>WordPlay</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/styles_mixmaster.css" />
+    <link rel="stylesheet" href="http://nomadic-schematic.com/assets/css/ss-social.css" />
+    <script src="js/vendor/modernizr.js"></script>
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <!-- // <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/increment.js"></script> //-->
+
+    <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
+    <script type="text/javascript">
+
+    // UL listing via Array
+    $(function() {
+      var llist = [];
+      var rlist = llist.reverse
+
+      var leftlist = $('ul#WordsLeft')
+      var rightlist = $('ul#WordsRight')
+
+      $.each(llist, function(i)
+      {
+          var li1 = $('<li onClick=\'javascript\:this.remove()\;\' />')
+              .appendTo(leftlist);
+              // .addClass('ui-menu-item') .attr('role', 'menuitem')
+
+          var aaa = $('<span/>')
+              .text(llist[i])
+              .appendTo(li1);
+              // .addClass('ui-all')
+      // })
+
+
+      // $(function() {
+        
+        // $('ul#WordsLeft').endlessScroll({
+        //   fireOnce: false, // what is this for
+        //   insertAfter: "ul#WordsLeft li:last",
+        //   data: function(llist) {
+        //     return '<li onClick=\'javascript:this.remove();\'>' + llist.children() + '</li>'
+        //   }
+        // });
+
+      // $.each(rlist, function(i)
+      //     var li2 = $('<li onClick=\'javascript\:this.remove()\;\' />')
+      //         .appendTo(rightlist);
+      //         // .addClass('ui-menu-item') .attr('role', 'menuitem')
+
+      //     var aaa2 = $('<a/>')
+      //         .text(rlist[i])
+      //         .appendTo(li2);
+      //         // .addClass('ui-all')
+
+      });
+    });
+
+    function randomResponse()
+    {
+      var response1 = new Array(
+        "You\'re a genius.",
+        "Reattach your head and try again.",
+        "At least you have your good looks.",
+        "It could work.",
+        "You\'re much too good for this job."
+      )
+      document.getElementById('AddAWord').value()=response1;
+    };
+
+      // reverse UL order
+      // var list = $('#WordsRight');
+      // var listItems = list.children('li');
+      
+      // append new word to list
+            // $("#SaveAWord").click(function(){
+            //   $(".#WordsRight").appendTo("#fbsignup .message ul").
+              // .append('<li>'+$('#AddAWord').val()+'</li>');
+              
+            //   return false;
+            // });
+
+
+            // $(function() {
+                // $('#AddAWord').submit() {
+                // $('.words li').append(userWord.value );
+                // return false;
+              // };
+            // });
+
+      // endless scroll
+      // $(function() {
+        
+      //   $('ul#WordsLeft').endlessScroll({
+      //     fireOnce: false,
+      //     insertAfter: "ul#WordsLeft div:last",
+      //     data: function(i) {
+      //       return '<li onClick=\'javascript:this.remove();\'>' + i + '</li>'
+      //     }
+      //   });
+      //   $('ul#WordsRight').endlessScroll({
+      //     fireOnce: false,
+      //     insertAfter: "ul#WordsRight div:last",
+      //     data: function(i) {
+      //       return '<li onClick=\'javascript:this.remove();\'>' + i + '</li>'
+      //     }
+      //   });
+
+      // });
+
+
+      // $("#AddAWord").keydown(function(event){
+      //   $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>');
+      //   if(event.keyCode == 13){
+      //     $("#SaveAWord").click({
+      //       $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>');
+      //     });
+      //   }
+      // });
+
+      // onLoad="javascript:go();"
+     </script>
+  </head>
+  <body >
+
+<div>
+  <!-- form method="get" -->
+  <div  id="WordInput">
+    <input id="AddAWord" autocomplete="off" type="text" name="" 
+    onkeydown="if (event.keyCode == 13) { $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>'); this.value = ''; };"
+    type="hidden"
+    onfocus="randomResponse();"
+    value=""
+    >
+    <!-- value="What emotion conveys this project well?"  -->
+    <!-- onfocus="if(this.value == 'What emotion conveys this project well?') { this.value = ''; }"  -->
+    <!-- onClick list.append(listItems.get().reverse()); -->
+    <!-- $('.activeInput').each(function() {  llist[$(this).attr('name')] = $(this).val();  }); -->
+    <a href="javascript:;" id="SaveAWord" style="top:0;right:0;" onClick="javascript:
+      $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>');
+      "><span class="show-for-large">Add Word</span><span class="show-for-small">+ Word</span></a>
+  </div>
+</div>
+
+<div class="container">
+
+  <ul class="words" id="WordsLeft" data-options="disable-for-touch:true">
+
+  </ul>
+  
+  <ul class="words" id="WordsRight" data-options="disable-for-touch:true">
+
+  </ul>
+
+
+</div>
+
+<!-- <li onClick="javascript:this.remove();">WORD1a</li>
+      <li onClick="javascript:this.remove();">WORD2a</li> -->
+
+  </body>
+  </html>
