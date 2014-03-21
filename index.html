@@ -8,7 +8,7 @@
     <title>WordPlay</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/styles_mixmaster.css" />
-    <link rel="stylesheet" href="http://nomadic-schematic.com/assets/css/ss-social.css" />
+    <link rel="stylesheet" href="css/ss-standard.css" />
     <script src="js/vendor/modernizr.js"></script>
 
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
@@ -65,14 +65,52 @@
     function randomResponse()
     {
       var response1 = new Array(
-        "You\'re a genius.",
-        "Reattach your head and try again.",
-        "At least you have your good looks.",
-        "It could work.",
-        "You\'re much too good for this job."
-      )
-      document.getElementById('AddAWord').value()=response1;
+        "How should this feel?",
+        "What's a fitting Spirit Animal?",
+        "What's a key attribute?",
+        "Name a related famous person?",
+        "Any food group/item?",
+        "Associated facial expression?",
+        "Analogous gesture?",
+        "Any rhyming word from the topic name?",
+        "What is the main topic?",
+        "What object could represent this?",
+        "An analogy to describe your product's function?",
+        "What related phrases do you know?",
+        "Name an element from and analogous historical moment?",
+        "A unique characteristic versus competitors?",
+        "A unique quality you want to impact users?",
+        "Does any color express this?",
+        "Spelling variation of topik?",
+        "Can you make a short joke?",
+        ""
+        )
+      var randomNum = Math.floor(Math.random() * 5)
+      document.getElementById('AddAWord').value = response1[randomNum];
     };
+    function fieldPrep()
+    {
+      var response2 = new Array(
+        "How should this feel?",
+        "What's a fitting Spirit Animal?",
+        "What's a key attribute?",
+        "Name a related famous person?",
+        "Any food group/item?",
+        "Associated facial expression?",
+        "Analogous gesture?",
+        "Any rhyming word from the topic name?",
+        "What is the main topic?",
+        "What object could represent this?",
+        "An analogy to describe your product's function?",
+        "What related phrases do you know?",
+        "Name an element from and analogous historical moment?",
+        "A unique characteristic versus competitors?",
+        "A unique quality you want to impact users?",
+        "Does any color express this?"
+        )
+      var randomNum = Math.floor(Math.random() * 5)
+      document.getElementById('AddAWord').value = 'e.g. ' + response2[randomNum];
+    }
 
       // reverse UL order
       // var list = $('#WordsRight');
@@ -127,7 +165,7 @@
       // onLoad="javascript:go();"
      </script>
   </head>
-  <body >
+  <body onLoad="fieldPrep()">
 
 <div>
   <!-- form method="get" -->
@@ -135,16 +173,19 @@
     <input id="AddAWord" autocomplete="off" type="text" name="" 
     onkeydown="if (event.keyCode == 13) { $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>'); this.value = ''; };"
     type="hidden"
-    onfocus="randomResponse();"
-    value=""
+    onblur="randomResponse()" 
+    onfocus="this.value=''"
+    style="z-index:3"
     >
+    <a href="javascript:;" onBlur="randomResponse()" class="hide-for-small"><span class="ss-icon" style="font-size:1.3em;z-index:4;position:absolute;top:12px;right:20%;padding-right:10px;">Sync</span></a>
+    <!-- onfocus="randomResponse();" -->
     <!-- value="What emotion conveys this project well?"  -->
     <!-- onfocus="if(this.value == 'What emotion conveys this project well?') { this.value = ''; }"  -->
     <!-- onClick list.append(listItems.get().reverse()); -->
     <!-- $('.activeInput').each(function() {  llist[$(this).attr('name')] = $(this).val();  }); -->
-    <a href="javascript:;" id="SaveAWord" style="top:0;right:0;" onClick="javascript:
+    <a href="javascript:;" onkeyup="randomResponse()" id="SaveAWord" style="z-index:5;top:0;right:0;" onClick="javascript:
       $('.words').append('<li onClick=\'javascript:this.remove();\'>'+$('#AddAWord').val()+'</li>');
-      "><span class="show-for-large">Add Word</span><span class="show-for-small">+ Word</span></a>
+      "><span class="show-for-large">Add Word</span><span class="hide-for-large">+ Word</span></a>
   </div>
 </div>
 
