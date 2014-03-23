@@ -1,5 +1,6 @@
 /* Stop OSX Elastic Scroll... */
 html {
+  margin: 0; padding: 0;
   font-size: 1.0em;
   height: 100%;
   width: 100%;
@@ -7,12 +8,10 @@ html {
 }
 
 body {
+  /* margin: 0; padding: 0; */
   height: 100%;
   width: 100%;
   overflow: auto;
-}
-
-body {
   border-top: 0px solid rgba(60,80,160,1.0);
 }
 
@@ -39,7 +38,7 @@ hr {
 }
 
 .container {
-  height: 92%;
+  height: 88%;
   left:0;
   margin-left: 0px;
   margin-top: 35px;
@@ -58,7 +57,7 @@ hr {
   font-size: 1.5em;
   padding-bottom:25px;
   padding-top:25px;
-  width:100%;
+  width:80%;
 }
 .words {
   height: 100% !important;
@@ -68,11 +67,11 @@ hr {
   text-decoration:line-through;
 }
 #WordsLeft {
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch !important;
   background-color: rgba(0,0,0,.05);
   float:left;
   height:500px;
-  overflow: scroll;
+  overflow: scroll !important;
   text-align: right;
   width: 50%;
 }
@@ -129,6 +128,8 @@ hr {
   opacity: .5;
 }
 
-@media screen and (min-width: 650px) {
-
+@media screen and (max-width: 650px) {
+  input {
+  font-size:.9em !important;
+  }
 }
