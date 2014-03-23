@@ -19,17 +19,19 @@
 <body onLoad="fieldPrep()">
 <script type="text/javascript" src="js/de-elastic.js"></script>
 <div>
+  <div>
+    <label id="Question"></label>
+  </div>
   <div id="WordInput">
-    <a href="javascript:randomResponse()" class="hide-for-small"><span class="ss-icon refresh-question">Sync</span></a>
+    <a href="javascript:randomResponse()"><span class="ss-icon refresh-question">Sync</span></a>
     <input id="AddAWord" autocomplete="off" type="text" name=""
-    onkeydown="if (event.keyCode == 13) { $('.words').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');
+    onkeydown="if (event.keyCode == 13) { $('#WordsLeft').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');$('#WordsRight').prepend('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');randomResponse();
               this.value = ''; };"
     type="hidden"
-    onblur="randomResponse()"
-    onfocus="this.value=\'\'"
+    onfocus="this.value=''"
     style="z-index:3">
-    <a href="javascript:;" id="SaveAWord" style="z-index:101;top:0;right:0;" onClick="javascript:
-      $('.words').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');randomResponse();
+    <a href="javascript:;" id="SaveAWord" onClick="javascript:
+      $('#WordsLeft').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');$('#WordsRight').prepend('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');randomResponse();
       "><span class="show-for-large">Add Word</span><span class="hide-for-large">+ Add</span></a>
   </div>
 </div>

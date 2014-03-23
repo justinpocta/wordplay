@@ -21,7 +21,7 @@ function randomResponse()
         "Can you make a short joke?"
         )
       var randomNum = Math.floor(Math.random() * 5)
-      document.getElementById('AddAWord').value = response1[randomNum];
+      document.getElementById('Question').innerHTML = response1[randomNum];
     };
 
     function fieldPrep()
@@ -45,6 +45,6 @@ function randomResponse()
         "Does any color express this?"
         )
       var randomNum = Math.floor(Math.random() * 5)
-      document.getElementById('AddAWord').value = 'e.g. ' + response2[randomNum];
+      document.getElementById('Question').innerHTML = '' + response2[randomNum];
     };
     // });
