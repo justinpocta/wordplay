@@ -40,7 +40,7 @@ hr {
   height: 88%;
   left:0;
   margin-left: 0px;
-  margin-top: 75px;
+  margin-top: 76px;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -104,7 +104,7 @@ hr {
 #Question {
   font-size:1em;
   left:43px;
-  position:absolute;
+  position:fixed;
   top:5px;
 }
 #WordInput {

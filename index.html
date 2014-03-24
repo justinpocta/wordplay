@@ -12,9 +12,17 @@
     <script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src="js/jquery-1.3.2.min.js"></script>
     <!--// <script type="text/javascript" src="js/increment.js"></script> //-->
-    <script type="text/javascript" src="js/infinity.js"></script>
+    <!--// <script type="text/javascript" src="js/infinity.js"></script> //-->
+    <script type="text/javascript">
+    // both?
+      var nameitems = false;
+      var nameitems = new Array();
+      var sWord = null;
+      var itemmatch = false;
+      var itemtext = false;
+    </script>
     <script type="text/javascript" src="js/jquery.endless-scroll.js"></script>
-    <script type="text/javascript" src="js/li-wipe.js"></script>
+    <script type="text/javascript" src="js/listitems.js"></script>
     <script type="text/javascript" src="js/random-responses.js"></script>
   </head>
 <body onLoad="fieldPrep()">
@@ -26,23 +34,16 @@
   <div id="WordInput">
     <a href="javascript:randomResponse()"><span class="ss-icon refresh-question">Sync</span></a>
     <input id="AddAWord" autocomplete="off" type="text" name=""
-    onkeydown="if (event.keyCode == 13) { $('#WordsLeft').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');$('#WordsRight').prepend('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');randomResponse();
-              this.value = ''; };"
+onkeydown="if (event.keyCode == 13 && $(this).val() != '') {sendWord();randomResponse();this.value = '';} else {};"
     type="hidden"
     onfocus="this.value=''"
     style="z-index:3">
-    <a href="javascript:;" id="SaveAWord" onClick="javascript:
-      $('#WordsLeft').append('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');$('#WordsRight').prepend('<li class=\'listitem\'>'+$('#AddAWord').val()+'</li>');randomResponse();
-      "><span class="show-for-large">Add Word</span><span class="hide-for-large">+ Add</span></a>
+    <a href="javascript:;" id="SaveAWord" onClick="if ($('#AddAWord').val() != '') {sendWord();randomResponse();} else {}"><span class="show-for-large">Add Word</span><span class="hide-for-large">+ Add</span></a>
   </div>
 </div>
 <div class="container">
-  <ul class="words" id="WordsLeft" data-options="disable-for-touch:true">
-
-  </ul>
-  <ul class="words" id="WordsRight" data-options="disable-for-touch:true">
-
-  </ul>
+  <ul class="words" id="WordsLeft" data-options="disable-for-touch:true"></ul>
+  <ul class="words" id="WordsRight" data-options="disable-for-touch:true"></ul>
 </div>
 </body>
 </html>
